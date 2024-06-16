@@ -24,4 +24,4 @@ To run the application locally, follow these steps:
 
 
 ## Project Link
-[https://llama3-webapp.streamlit.app]
+https://llama3-webapp.streamlit.app
