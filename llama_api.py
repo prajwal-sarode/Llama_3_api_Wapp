@@ -1,9 +1,14 @@
 import streamlit as st
 import requests
+from dotenv import load_dotenv
+import os
 
-# Replace with your actual Hugging Face Inference Endpoint URL and token
-API_URL = "https://api-inference.huggingface.co/models/meta-llama/Meta-Llama-3-8B-Instruct"  # Update with actual endpoint
-API_TOKEN = "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"
+# Load environment variables from .env file
+load_dotenv()
+
+# Define API URL and load API Token from environment variables
+API_URL = "https://api-inference.huggingface.co/models/meta-llama/Meta-Llama-3-8B-Instruct"
+API_TOKEN = os.getenv("API_TOKEN")
 
 headers = {"Authorization": f"Bearer {API_TOKEN}"}
 
@@ -19,7 +24,7 @@ def generate_response(user_input):
     else:
         return response[0]['generated_text']
 
-# Streamlit web interface
+# web interface
 st.title("Llama-3 Chat")
 
 if "chat_history" not in st.session_state:
